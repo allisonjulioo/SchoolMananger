@@ -1,0 +1,50 @@
+@import 'behaviors';
+@import 'colors';
+button {
+  display: inline-block;
+  line-height: 1;
+  padding: 8px 24px;
+  border-radius: 3px;
+  text-align: center;
+  transition: all 0.3s;
+  border: none;
+  width: 100%;
+  min-height: $size * 9;
+  cursor: pointer;
+  outline-color: transparent;
+  &.primary {
+    background-color: $primary;
+    color: $white;
+    &:hover {
+      background-color: darken($primary, 8%);
+    }
+  }
+  &.secondary {
+    background-color: $secondary;
+    color: $white;
+    &:hover {
+      background-color: darken($secondary, 8%);
+    }
+  }
+  &.tertiary {
+    background-color: $tertiary;
+    color: $black;
+    &:hover {
+      background-color: darken($tertiary, 8%);
+    }
+  }
+  &.link {
+    background-color: transparent;
+    color: $secondary;
+    font-weight: 700;
+    width: auto;
+    padding: 0 $size;
+    font-size: $size * 3;
+    &:hover {
+      color: lighten($secondary, 28%);
+    }
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}

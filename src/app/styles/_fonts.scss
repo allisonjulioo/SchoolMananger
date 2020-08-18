@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+@import 'colors';
+@import 'behaviors';
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+body {
+  color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.8;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  line-height: 1.15;
+}
+h2,
+h1,
+h3,
+h4 {
+  color: $secondary;
+  font-weight: 900;
+  letter-spacing: -0.1px;
+  margin: 1em 0;
+}
+h2 {
+  font-size: $size * 5;
+}
+p {
+  color: rgba($secondary, 0.7);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+span {
+  font-size: $size * 3;
+  font-size: 0.75rem;
+  color: $secondary;
+  font-weight: 300;
+  margin: 0;
+}
