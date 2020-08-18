@@ -1,0 +1,15 @@
+<track-login class="login">
+  <div class="account-not">
+    <span>Ainda não tem uma conta?</span>
+    <button class="link" (click)="changeRegister()">Registre-se.</button>
+  </div>
+</track-login>
+<track-register class="register">
+  <div class="account-not">
+    <span>Já tem uma conta?</span>
+    <button class="link" (click)="changeRegister()">Faça seu login.</button>
+  </div>
+</track-register>
+<div class="bg" [ngClass]="{ login: isLogin }">
+  <img src="./assets/background.png" alt="" />
+</div>
