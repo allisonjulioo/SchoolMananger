@@ -1,0 +1,6 @@
+@import '../../styles/';
+:hosttrack-main {
+  .main {
+    @include flex;
+  }
+}

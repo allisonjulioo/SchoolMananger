@@ -2,9 +2,10 @@ import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
+import { User } from 'src/app/models/user/user';
 @Injectable()
 export class HttpUtilService {
-  public token = localStorage.getItem('token');
+  public user: User;
   constructor(private router: Router) {}
 
   private API_URL = 'http://localhost:8000/';
@@ -18,7 +19,7 @@ export class HttpUtilService {
       'Content-Type': 'application/json',
     });
 
-    if (!!this.token) {
+    if (!!this.user.stsTokenManager.accessToken) {
       const authToken = localStorage.token;
       headers.append('Authorization', `Bearer ${authToken}`);
     }
@@ -34,7 +35,6 @@ export class HttpUtilService {
   public processarErros(erro: any): Observable<never> {
     if (erro.status === 401) {
       delete localStorage.user;
-      delete localStorage.token;
       location.reload();
       this.router.navigate(['/login']);
     }

@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router,
+  RouterState,
+} from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { GuardsService } from './services/guards/guards.service';
 
 @Component({
   selector: 'track-root',
@@ -9,19 +15,28 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private router: Router, private titleService: Title) {
-    this.titleService.setTitle('Some title');
+  private defaultTitle = 'Trackto Challenge';
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private guard: GuardsService
+  ) {
+    this.titleService.setTitle(this.defaultTitle);
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event) => {
+      .subscribe(() => {
         const title = this.getTitle(
           this.router.routerState,
           this.router.routerState.root
         ).join(' | ');
-        this.titleService.setTitle(title);
+        this.titleService.setTitle(`${this.defaultTitle}: ${title}`);
+        this.guard.checkIfUserLogged();
       });
   }
-  private getTitle(state, parent): any[] {
+  private getTitle(
+    state: RouterState & any,
+    parent: ActivatedRoute
+  ): NavigationEnd[] {
     const data = [];
     if (parent && parent.snapshot.data && parent.snapshot.data.title) {
       data.push(parent.snapshot.data.title);

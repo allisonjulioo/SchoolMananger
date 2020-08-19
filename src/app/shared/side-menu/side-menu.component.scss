@@ -1,0 +1,7 @@
+@import '../../styles/';
+:hosttrack-side-menu {
+  background: $secondary;
+  min-height: 100vh;
+  width: 60px;
+  margin-right: $size * 4;
+}

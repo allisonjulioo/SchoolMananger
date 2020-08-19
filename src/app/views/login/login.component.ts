@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GuardsService } from 'src/app/services/guards/guards.service';
+import { User } from '../../models/user/user';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -8,10 +11,15 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private loginService: AuthService) {}
+  private user: User;
+  constructor(
+    private loginService: AuthService,
+    private router: Router,
+    private guard: GuardsService
+  ) {}
   loginForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    email: new FormControl('allison.julio@hotmail.com', Validators.required),
+    password: new FormControl('121212julio', Validators.required),
   });
 
   ngOnInit(): void {}
@@ -19,7 +27,9 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.loginService
       .login(email, password)
-      .then((res) => console.log(res))
+      .then(async (res) => {
+        this.guard.storageUser(res).then(() => this.router.navigate(['/main']));
+      })
       .catch((err) => console.log(err));
   }
 }

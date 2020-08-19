@@ -11,8 +11,8 @@ input {
   border: 1px solid #e5e5e5;
   font-size: $size * 3;
   font-size: 0.75rem;
-  font-weight: 300;
-  color: $primary;
+  font-weight: 700;
+  color: $black;
   &:active,
   &:focus {
     box-shadow: 0 5px 10px rgba($primary, 0.41);

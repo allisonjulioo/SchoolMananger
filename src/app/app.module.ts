@@ -12,6 +12,8 @@ import { HttpUtilService } from './services/http-utils/http-util-service.service
 import { AuthComponent } from './views/auth/auth.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { MainComponent } from './views/main/main.component';
+import { SideMenuComponent } from './shared/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { RegisterComponent } from './views/register/register.component';
     AuthComponent,
     RegisterComponent,
     LoginComponent,
+    MainComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,
