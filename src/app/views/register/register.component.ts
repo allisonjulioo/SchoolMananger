@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
+import { ConfirmPassword } from '../../utils/validators/confirm-password';
+
 @Component({
   selector: 'track-register',
   templateUrl: './register.component.html',
@@ -8,12 +10,29 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class RegisterComponent implements OnInit {
   public isLogin: boolean;
-  constructor(private loginService: AuthService) {}
-  registerForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
+  registerForm: FormGroup;
+  constructor(
+    private loginService: AuthService,
+    public formbuilder: FormBuilder,
+    private validators: ConfirmPassword
+  ) {
+    this.registerForm = this.formbuilder.group({
+      name: [null, [Validators.required, Validators.minLength(5)]],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(6),
+          validators.ValidateConfirmPassword,
+        ],
+      ],
+    });
+  }
+
   ngOnInit(): void {}
+
   register(): void {
     const { email, password } = this.registerForm.value;
     this.loginService

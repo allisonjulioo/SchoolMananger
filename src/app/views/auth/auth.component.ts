@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class AuthComponent implements OnInit {
   public isLogin: boolean;
+  public showContent: boolean;
   constructor(private loginService: AuthService) {}
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -24,5 +25,6 @@ export class AuthComponent implements OnInit {
   }
   changeRegister(): void {
     this.isLogin = !this.isLogin;
+    setTimeout(() => (this.showContent = !this.showContent), 200);
   }
 }
