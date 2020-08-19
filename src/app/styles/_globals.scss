@@ -1,8 +1,10 @@
 @import 'colors';
+@import 'helpers';
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  outline: none;
 }
 ::selection {
   background-color: lighten($primary, 23%);
@@ -13,4 +15,7 @@ body {
 }
 body {
   background-color: #faf9fb;
+}
+.container {
+  @include flex;
 }

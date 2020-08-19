@@ -13,24 +13,22 @@ button {
   min-height: $size * 9;
   max-width: 164px;
   cursor: pointer;
+  color: $white;
   outline-color: transparent;
   &.primary {
     background-color: $primary;
-    color: $white;
     &:hover {
       background-color: darken($primary, 4%);
     }
   }
   &.secondary {
     background-color: $secondary;
-    color: $white;
     &:hover {
       background-color: darken($secondary, 4%);
     }
   }
   &.tertiary {
     background-color: $tertiary;
-    color: $black;
     &:hover {
       background-color: darken($tertiary, 4%);
     }

@@ -1,11 +1,17 @@
 <ul class="list">
-  <li class="item user">
-    <span>A</span>
+  <li class="item user" routerLink="profile">
+    <span>{{ user?.displayName?.charAt(0) }}</span>
+    <span class="tooltip">{{ user?.email }}</span>
   </li>
-  <li class="item"><i class="gg-user"></i></li>
-  <li class="item"><i class="gg-ereader"></i></li>
-  <li class="item active"><i class="gg-read"></i></li>
-  <li class="item"><i class="gg-album"></i></li>
-  <li class="item"><i class="gg-display-flex"></i></li>
+  <li
+    class="item"
+    *ngFor="let menu of sideMenu"
+    [routerLink]="['list', menu?.link]"
+    routerLinkActive="active"
+    (click)="handleClickSideMenu(menu)"
+  >
+    <i class="gg-{{ menu.icon }}"></i>
+    <span class="tooltip">{{ menu.name }}</span>
+  </li>
   <li class="item quit" (click)="logout()"><i class="gg-arrow-left-r"></i></li>
 </ul>

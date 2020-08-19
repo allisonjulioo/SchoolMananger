@@ -5,10 +5,6 @@
     .content {
       width: 100%;
       margin: 1.5em 2em;
-      .container {
-        margin-left: -1em;
-        @include flex;
-      }
     }
   }
 }

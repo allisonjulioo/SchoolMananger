@@ -2,15 +2,9 @@
   <track-side-menu></track-side-menu>
   <div class="content">
     <img src="./assets/logo.png" alt="" height="20" />
-    <track-header></track-header>
+    <track-header (add)="handlerAdd($event)"></track-header>
     <div class="container">
-      <div class="card" *ngFor="let pupil of pupils">
-        <div class="card-body">
-          <h3>{{ pupil.name }}</h3>
-          <p>{{ pupil.class }}</p>
-          <span>{{ pupil.age }}</span>
-        </div>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

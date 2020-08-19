@@ -1,0 +1,9 @@
+<div class="list">
+  <div class="card" *ngFor="let card of cards">
+    <div class="card-body">
+      <h3>{{ card.name }}</h3>
+      <p>{{ card.class || card.responsible_teacher }}</p>
+      <span>{{ card.age || card.age_range }}</span>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pupils } from 'src/app/models/pupils/pupils';
-import { PupilsService } from 'src/app/services/pupils/pupils.service';
+import { SideMenu } from 'src/app/models/side-menu/side-menu';
 
 @Component({
   selector: 'track-main',
@@ -8,14 +7,11 @@ import { PupilsService } from 'src/app/services/pupils/pupils.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  pupils: Pupils[];
-  constructor(private pupilService: PupilsService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.getPupils();
-  }
+  ngOnInit(): void {}
 
-  public getPupils(): void {
-    this.pupilService.get().subscribe((pupils) => (this.pupils = pupils));
+  public handlerAdd(menu: SideMenu): void {
+    console.log(menu);
   }
 }
