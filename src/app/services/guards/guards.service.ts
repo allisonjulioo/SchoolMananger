@@ -16,12 +16,15 @@ export class GuardsService implements CanActivate {
     await this.checkIfUserLogged();
   }
   public async checkIfUserLogged(): Promise<void> {
-    this.user = await JSON.parse(localStorage.getItem('user'));
+    this.user = this.getUser();
     if (!!this.user) {
       this.router.navigate(['/main']);
     } else {
       this.router.navigate(['/login']);
     }
+  }
+  public getUser(): User {
+    return JSON.parse(localStorage.getItem('user'));
   }
   canActivate(): Observable<boolean> | boolean {
     return !!this.user;
