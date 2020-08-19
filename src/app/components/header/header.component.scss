@@ -1,0 +1,8 @@
+@import '../../styles/';
+
+:hosttrack-header {
+  .header {
+    @include flex-center-between;
+    height: 60px;
+  }
+}

@@ -5,8 +5,8 @@ import { HttpUtilsService } from '../http-utils/http-util-service.service';
 @Injectable({
   providedIn: 'root',
 })
-export class PupilsService extends HttpUtilsService {
+export class SideMenuService extends HttpUtilsService {
   constructor(public afs: AngularFirestore) {
-    super('pupils');
+    super('side-menu');
   }
 }

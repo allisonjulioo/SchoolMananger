@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Pupils } from 'src/app/models/pupils/pupils';
+import { PupilsService } from 'src/app/services/pupils/pupils.service';
 
 @Component({
   selector: 'track-main',
@@ -7,10 +8,14 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  pupils: Pupils[];
+  constructor(private pupilService: PupilsService) {}
 
-  ngOnInit(): void {}
-  public logout(): void {
-    this.authService.logout();
+  ngOnInit(): void {
+    this.getPupils();
+  }
+
+  public getPupils(): void {
+    this.pupilService.get().subscribe((pupils) => (this.pupils = pupils));
   }
 }

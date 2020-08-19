@@ -1,4 +1,5 @@
 @import 'behaviors';
+@import 'helpers';
 @import 'colors';
 button {
   display: inline-block;
@@ -10,27 +11,28 @@ button {
   border: none;
   width: 100%;
   min-height: $size * 9;
+  max-width: 164px;
   cursor: pointer;
   outline-color: transparent;
   &.primary {
     background-color: $primary;
     color: $white;
     &:hover {
-      background-color: darken($primary, 8%);
+      background-color: darken($primary, 4%);
     }
   }
   &.secondary {
     background-color: $secondary;
     color: $white;
     &:hover {
-      background-color: darken($secondary, 8%);
+      background-color: darken($secondary, 4%);
     }
   }
   &.tertiary {
     background-color: $tertiary;
     color: $black;
     &:hover {
-      background-color: darken($tertiary, 8%);
+      background-color: darken($tertiary, 4%);
     }
   }
   &.link {
@@ -41,7 +43,20 @@ button {
     padding: 0 $size;
     font-size: $size * 3;
     &:hover {
-      color: lighten($secondary, 28%);
+      color: lighten($secondary, 24%);
+    }
+  }
+  &.icon {
+    @include flex-center;
+    i {
+      transition: all 0.3s ease-in-out;
+      margin-right: $size;
+      transform: scale(0.8);
+    }
+    &:hover {
+      i {
+        transform: scale(0.8) translateX(-4px);
+      }
     }
   }
   &:active {

@@ -1,9 +1,11 @@
-@import "colors";
+@import 'behaviors';
+@import 'colors';
 .card {
   background-color: $white;
-  box-shadow: 0px 10px 60px 0px rgba(81, 45, 109, 0.31);
-  margin: 0px 10px 0px 10px;
+  border-radius: $size * 2;
+  box-shadow: 0px 4px 8px 0px rgba(81, 45, 109, 0.31);
+  margin: 1em;
   .card-body {
-    padding: 4px;
+    padding: $size * 4;
   }
 }

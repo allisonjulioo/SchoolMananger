@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase';
 import { User } from '../../models/user/user';
 import { GuardsService } from '../guards/guards.service';
-import { HttpUtilService } from '../http-utils/http-util-service.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,6 @@ export class AuthService {
   constructor(
     public angularFireAuth: AngularFireAuth,
     public router: Router,
-    private httpUtils: HttpUtilService,
     private guard: GuardsService
   ) {}
   public async login(email: string, password: string): Promise<User> {

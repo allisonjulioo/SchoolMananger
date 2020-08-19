@@ -1,44 +1,15 @@
-import { HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { User } from 'src/app/models/user/user';
-@Injectable()
-export class HttpUtilService {
-  public user: User;
-  constructor(private router: Router) {}
+import { Inject, Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
-  private API_URL = 'http://localhost:8000/';
+@Injectable({
+  providedIn: 'root',
+})
+export class HttpUtilsService {
+  public afs: AngularFirestore;
+  constructor(@Inject('collection') public collection: string) {}
 
-  url(path: string): string {
-    return this.API_URL + path;
-  }
-
-  public headers(): { headers: HttpHeaders } {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-    });
-
-    if (!!this.user.stsTokenManager.accessToken) {
-      const authToken = localStorage.token;
-      headers.append('Authorization', `Bearer ${authToken}`);
-    }
-    return { headers };
-  }
-
-  public async extrairDados(response: Response): Promise<any> {
-    const data = response.json();
-    console.log(data);
-    return data || {};
-  }
-
-  public processarErros(erro: any): Observable<never> {
-    if (erro.status === 401) {
-      delete localStorage.user;
-      location.reload();
-      this.router.navigate(['/login']);
-    }
-
-    return throwError('Erro acessando servidor remoto.');
+  public get(): Observable<any[]> {
+    return this.afs.collectionGroup(this.collection).valueChanges();
   }
 }

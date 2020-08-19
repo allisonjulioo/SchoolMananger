@@ -32,6 +32,9 @@ h4 {
   font-weight: 900;
   letter-spacing: -0.1px;
   margin: 1em 0;
+  &.black {
+    color: $black;
+  }
 }
 h2 {
   font-size: $size * 5;
