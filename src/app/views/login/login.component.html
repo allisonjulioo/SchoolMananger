@@ -20,7 +20,7 @@
       formControlName="password"
       autocomplete="disabled"
     />
-    <button class="primary">Entrar</button>
+    <button class="primary" [disabled]="!loginForm.valid">Entrar</button>
   </form>
   <ng-content></ng-content>
 </div>

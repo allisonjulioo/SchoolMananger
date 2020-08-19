@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { firebaseConfig } from 'src/environments/environment';
@@ -36,6 +37,7 @@ import { RegisterComponent } from './views/register/register.component';
     GuardsService,
     HttpUtilsService,
     AngularFireModule,
+    AngularFirestore,
     AngularFireAuth,
   ],
   bootstrap: [AppComponent],

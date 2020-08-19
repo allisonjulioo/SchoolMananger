@@ -1,1 +1,29 @@
-<p>edit works!</p>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form">
+  <label>
+    <span>Nome</span>
+    <input type="text" formControlName="name" />
+  </label>
+
+  <label>
+    <span>Idade</span>
+    <input type="number" formControlName="age" />
+  </label>
+  <label>
+    <span>Turma</span>
+    <input type="text" formControlName="class" />
+  </label>
+  <label>
+    <span>Foto</span>
+    <input type="text" formControlName="picture" />
+  </label>
+  <label>
+    <span>Responsável</span>
+    <input type="text" formControlName="responsible_name" />
+  </label>
+  <button class="primary" type="submit" [disabled]="!profileForm.valid">
+    Salvar
+  </button>
+</form>
+<button class="secondary" (click)="delete('')">
+  Deletar
+</button>

@@ -39,9 +39,9 @@ export class SideMenuComponent implements OnInit {
       // tslint:disable-next-line: no-string-literal
       let routeType = this.activeRoute.snapshot['_routerState'].url?.split('/');
       routeType = routeType[routeType.length - 1];
-      this.handleClickSideMenu(
-        response.find((menu) => menu?.link === routeType)
-      );
+      // this.handleClickSideMenu(
+      //   response.find((menu) => menu?.link === routeType)
+      // );
     });
   }
   public handleClickSideMenu(menu: SideMenu): void {

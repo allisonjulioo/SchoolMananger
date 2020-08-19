@@ -11,7 +11,6 @@ button {
   border: none;
   width: 100%;
   min-height: $size * 9;
-  max-width: 164px;
   cursor: pointer;
   color: $white;
   outline-color: transparent;
@@ -55,6 +54,15 @@ button {
       i {
         transform: scale(0.8) translateX(-4px);
       }
+    }
+  }
+  &:disabled {
+    opacity: 0.8;
+    background-color: ligthen($secondary, 14%);
+    cursor: default;
+    &:hover {
+      opacity: 0.8;
+      background-color: ligthen($secondary, 14%) !important;
     }
   }
   &:active {

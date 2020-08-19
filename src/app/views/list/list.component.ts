@@ -31,9 +31,9 @@ export class ListComponent implements OnInit {
     });
   }
   public getList(collection: string): void {
-    this[collection].get().subscribe((cards: any) => {
-      console.log(cards);
-      this.cards = cards;
-    });
+    this[collection].get().subscribe((cards: any) => (this.cards = cards));
+  }
+  public handleDelete(item: any): void {
+    console.log(item);
   }
 }

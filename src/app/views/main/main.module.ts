@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpUtilsService } from 'src/app/services/http-utils/http-util-service.service';
 import { GuardsService } from '../../services/guards/guards.service';
@@ -28,6 +29,7 @@ import { MainRoutingModule } from './main.routing.module';
     HttpUtilsService,
     AngularFireModule,
     AngularFireAuth,
+    AngularFirestore,
   ],
 })
 export class MainModule {}
