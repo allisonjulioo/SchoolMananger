@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './text-box.component.html',
   styleUrls: ['./text-box.component.scss'],
 })
-export class TextBoxComponent implements OnInit {
+export class TextBoxComponent implements OnChanges, OnInit {
   @Input() field: any = {};
   @Input() form: FormGroup;
   get isValid(): boolean {
@@ -19,4 +19,10 @@ export class TextBoxComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  public ngOnChanges(changes: any): void {
+    if (changes?.field?.currentValue) {
+      this.field.value = changes.field.currentValue.value;
+      console.log(changes.field.currentValue);
+    }
+  }
 }
