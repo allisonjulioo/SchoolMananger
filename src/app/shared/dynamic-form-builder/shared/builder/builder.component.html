@@ -1,0 +1,36 @@
+<div [formGroup]="form">
+  <label [attr.for]="field.label">
+    <span> {{ field.label }}</span>
+    <strong class="text-danger" *ngIf="field.required">*</strong>
+  </label>
+  <div [ngSwitch]="field.type">
+    <track-text-box
+      *ngSwitchCase="'text'"
+      [field]="field"
+      [form]="form"
+    ></track-text-box>
+    <track-dropdown
+      *ngSwitchCase="'dropdown'"
+      [field]="field"
+      [form]="form"
+    ></track-dropdown>
+    <track-checkbox
+      *ngSwitchCase="'checkbox'"
+      [field]="field"
+      [form]="form"
+    ></track-checkbox>
+    <track-radio
+      *ngSwitchCase="'radio'"
+      [field]="field"
+      [form]="form"
+    ></track-radio>
+    <track-file
+      *ngSwitchCase="'file'"
+      [field]="field"
+      [form]="form"
+    ></track-file>
+    <div class="fadeInDown animated" *ngIf="!isValid && isDirty">
+      <span>{{ field.label }} is required</span>
+    </div>
+  </div>
+</div>

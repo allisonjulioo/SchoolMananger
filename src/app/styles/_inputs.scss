@@ -1,7 +1,8 @@
 @import 'behaviors';
 @import 'colors';
 
-input {
+input,
+select {
   outline-color: transparent;
   width: 100%;
   border: none;
@@ -15,6 +16,27 @@ input {
   color: $black;
   &:active,
   &:focus {
-    box-shadow: 0 5px 10px rgba($primary, 0.41);
+    box-shadow: 0 5px 10px rgba($primary, 0.4);
+  }
+}
+.form-check-label {
+  @include flex-center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.6em 0.2em;
+  margin: $size 0;
+  &:hover {
+    background: rgba($black, 0.05);
+  }
+  &:active {
+    background: rgba($black, 0.1);
+  }
+  input {
+    width: auto;
+    margin: 0 $size * 3 0 0;
+  }
+  span {
+    color: lighten($black, 20%) !important;
+    user-select: none;
   }
 }

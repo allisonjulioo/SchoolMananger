@@ -1,1 +1,19 @@
-<p>dynamic-form-builder works!</p>
+<form
+  (ngSubmit)="save.emit(this.form.value)"
+  [formGroup]="form"
+  class="form-horizontal"
+>
+  <div *ngFor="let field of fields">
+    <track-builder [field]="field" [form]="form"></track-builder>
+  </div>
+  <div class="form-row"></div>
+  <div class="form-group row">
+    <div></div>
+    <div>
+      <button type="submit" [disabled]="!form.valid" class="primary">
+        Salvar
+      </button>
+      <strong>Saved all values</strong>
+    </div>
+  </div>
+</form>

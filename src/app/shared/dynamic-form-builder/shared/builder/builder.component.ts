@@ -1,21 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'track-text-box',
-  templateUrl: './text-box.component.html',
-  styleUrls: ['./text-box.component.scss'],
+  selector: 'track-builder',
+  templateUrl: './builder.component.html',
+  styleUrls: ['./builder.component.scss'],
 })
-export class TextBoxComponent implements OnInit {
-  @Input() field: any = {};
-  @Input() form: FormGroup;
+export class BuilderComponent implements OnInit {
+  @Input() field: any;
+  @Input() form: any;
+
   get isValid(): boolean {
     return this.form.controls[this.field.name].valid;
   }
   get isDirty(): boolean {
     return this.form.controls[this.field.name].dirty;
   }
-
   constructor() {}
 
   ngOnInit(): void {}
