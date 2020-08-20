@@ -22,7 +22,6 @@ export class TextBoxComponent implements OnChanges, OnInit {
   public ngOnChanges(changes: any): void {
     if (changes?.field?.currentValue) {
       this.field.value = changes.field.currentValue.value;
-      console.log(changes.field.currentValue);
     }
   }
 }

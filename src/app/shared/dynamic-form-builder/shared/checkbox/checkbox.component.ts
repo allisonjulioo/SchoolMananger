@@ -9,13 +9,9 @@ import { FormGroup } from '@angular/forms';
 export class CheckboxComponent implements OnInit {
   @Input() field: any = {};
   @Input() form: FormGroup;
-  get isValid(): boolean {
-    return this.form.controls[this.field.name].valid;
-  }
-  get isDirty(): boolean {
-    return this.form.controls[this.field.name].dirty;
-  }
   constructor() {}
-
+  public isChecked(key: string, listKey: string): boolean {
+    return key === listKey;
+  }
   ngOnInit(): void {}
 }

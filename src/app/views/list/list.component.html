@@ -1,11 +1,24 @@
 <div class="list">
   <div class="card" *ngFor="let card of cards">
     <div class="card-body">
-      <h3>{{ card.name }}</h3>
-      <p>{{ card.class || card.responsible_teacher }}</p>
-      <span>{{ card.age || card.age_range }}</span>
+      <div class="media">
+        <img [src]="card.picture" *ngIf="card?.picture" alt="" height="40" />
+        <div class="content">
+          <h3 class="header">{{ card.name }}</h3>
+          <p class="description">
+            {{ card.class || card.responsible_teacher }}
+          </p>
+          <span class="label">{{ card.age || card.age_range }}</span>
+        </div>
+      </div>
     </div>
-    <button class="link" (click)="handleClickDelete(card)">deletar</button>
-    <button class="link" (click)="handleClickEdit(card)">editar</button>
+    <div class="actions">
+      <button class="link icon" (click)="handleClickDelete(card)">
+        <i class="gg-trash"></i>
+      </button>
+      <button class="link icon" (click)="handleClickEdit(card)">
+        <i class="gg-pen"></i>
+      </button>
+    </div>
   </div>
 </div>

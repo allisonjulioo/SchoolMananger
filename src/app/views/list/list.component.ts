@@ -40,7 +40,6 @@ export class ListComponent implements OnInit {
       .subscribe((cards: any) => (this.cards = cards));
   }
   public handleClickDelete({ id }: any): void {
-    console.log(id);
     this[this.collectionService].delete(id).then(() => this.getList());
   }
   public handleClickEdit({ id }: any): void {

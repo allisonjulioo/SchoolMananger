@@ -2,8 +2,8 @@
 @import 'colors';
 .card {
   background-color: $white;
-  border-radius: $size * 2;
-  box-shadow: 0px 4px 8px 0px rgba(81, 45, 109, 0.31);
+  border-radius: $size;
+  border: 1px solid #f3f3f3;
   margin: 1em;
   .card-body {
     padding: $size * 4;

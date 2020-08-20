@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,14 +12,14 @@ import { DynamicFormService } from './../../services/dynamic-form/dynamic-form.s
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })
-export class EditComponent implements OnDestroy, OnInit {
+export class EditComponent implements OnInit {
   collection = this.activatedRoute.snapshot.params.type;
   id = this.activatedRoute.snapshot.params.id;
   service = `${this.collection}Service`;
   isNewRegister = this.id === 'new';
   public form: FormGroup;
   unsubcribe: any;
-  public fields: any[];
+  public fields: any[] = [];
   constructor(
     public afs: AngularFirestore,
     private router: Router,
@@ -33,7 +33,6 @@ export class EditComponent implements OnDestroy, OnInit {
       fields: new FormControl(JSON.stringify(this.fields)),
     });
     this.unsubcribe = this.form.valueChanges.subscribe((update) => {
-      console.log(update);
       this.fields = JSON.parse(update.fields);
     });
   }
@@ -43,8 +42,9 @@ export class EditComponent implements OnDestroy, OnInit {
     }
     this.fields = this.dynamicFormService.getForm(this.collection);
     this.dynamicFormService.currentForm.subscribe((form) => {
-      console.log(form);
-      // this.form.patchValue(form);
+      if (form) {
+        this.fields.map((field) => (field.value = form[field.name]));
+      }
     });
   }
 
@@ -69,8 +69,5 @@ export class EditComponent implements OnDestroy, OnInit {
     this[this.service]
       .update(value, this.id)
       .then(() => this.router.navigate(['main', 'list', this.collection]));
-  }
-  ngOnDestroy(): void {
-    // this.unsubcribe();
   }
 }

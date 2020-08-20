@@ -3,5 +3,33 @@
   .list {
     margin-left: -1em;
     @include flex;
+    .card {
+      position: relative;
+      min-width: 300px;
+      max-width: 300px;
+      @include flex;
+      .media {
+        @include flex;
+        img {
+          height: 100px;
+          width: 85px;
+          object-fit: cover;
+          margin-right: 1em;
+        }
+        .content {
+          .header {
+            max-width: 60%;
+            margin-top: 0;
+          }
+        }
+      }
+
+      .actions {
+        @include flex;
+        position: absolute;
+        right: 12px;
+        top: 8px;
+      }
+    }
   }
 }

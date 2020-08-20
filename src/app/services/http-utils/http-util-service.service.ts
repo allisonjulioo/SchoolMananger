@@ -4,7 +4,8 @@ import {
   AngularFirestoreDocument,
   DocumentReference,
 } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,10 @@ import { map } from 'rxjs/operators';
 export class HttpUtilsService {
   public afs: AngularFirestore;
   public itemDoc: AngularFirestoreDocument;
-  constructor(@Inject('collection') public collection: string) {}
+  constructor(
+    @Inject('collection') public collection: string,
+    private storage?: AngularFireStorage
+  ) {}
 
   public getById(id: string): any {
     return this.afs
@@ -49,5 +53,15 @@ export class HttpUtilsService {
     this.itemDoc = this.afs.doc(`${this.collection}/${id}`);
     return this.itemDoc.delete();
     return this.itemDoc.delete();
+  }
+  public async upload(event): Promise<any> {
+    const n = Date.now();
+    const file = event.target.files[0];
+    const filePath = `images/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(`images/${n}`, file);
+    return task
+      .snapshotChanges()
+      .pipe(finalize(() => fileRef.getDownloadURL()));
   }
 }

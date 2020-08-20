@@ -10,10 +10,10 @@ export class BuilderComponent implements OnInit {
   @Input() form: any;
 
   get isValid(): boolean {
-    return this.form.controls[this.field.name].valid;
+    return this.form.controls[this.field.name]?.valid;
   }
   get isDirty(): boolean {
-    return this.form.controls[this.field.name].dirty;
+    return this.form.controls[this.field.name]?.dirty;
   }
   constructor() {}
 

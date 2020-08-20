@@ -4,11 +4,18 @@
     <strong class="text-danger" *ngIf="field.required">*</strong>
   </label>
   <div [ngSwitch]="field.type">
-    <track-text-box
-      *ngSwitchCase="'text'"
-      [field]="field"
-      [form]="form"
-    ></track-text-box>
+    <ng-container [ngSwitch]="true">
+      <track-text-box
+        *ngSwitchCase="
+          field.type === 'text' ||
+          field.type === 'number' ||
+          field.type === 'password'
+        "
+        [field]="field"
+        [form]="form"
+      ></track-text-box>
+    </ng-container>
+
     <track-dropdown
       *ngSwitchCase="'dropdown'"
       [field]="field"
