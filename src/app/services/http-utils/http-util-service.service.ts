@@ -15,7 +15,15 @@ export class HttpUtilsService {
   constructor(@Inject('collection') public collection: string) {}
 
   public getById(id: string): any {
-    return this.afs.collection(this.collection).doc(id).get();
+    return this.afs
+      .collection(this.collection)
+      .doc(id)
+      .get()
+      .pipe(
+        map((res) => {
+          return { id: res.id, ...res.data() };
+        })
+      );
   }
   public get(): any {
     return this.afs

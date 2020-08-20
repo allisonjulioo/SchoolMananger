@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form">
+<form [formGroup]="pupilsForm" (ngSubmit)="onSubmit()" class="form">
   <label>
     <span>Nome</span>
     <input type="text" formControlName="name" />
@@ -20,10 +20,7 @@
     <span>Responsável</span>
     <input type="text" formControlName="responsible_name" />
   </label>
-  <button class="primary" type="submit" [disabled]="!profileForm.valid">
+  <button class="primary" type="submit" [disabled]="!pupilsForm.valid">
     Salvar
   </button>
 </form>
-<button class="secondary" (click)="delete('')">
-  Deletar
-</button>

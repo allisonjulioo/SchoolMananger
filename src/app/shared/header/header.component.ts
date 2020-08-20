@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     });
   }
   public handleAdd(): void {
-    this.router.navigate(['main', 'edit', 0, this.menu.link]);
+    this.router.navigate(['main', 'edit', 'new', this.menu.link]);
     this.add.next(this.menu);
   }
 }

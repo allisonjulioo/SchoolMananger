@@ -14,6 +14,8 @@ import { TeachersService } from 'src/app/services/teachers/teachers.service';
 export class ListComponent implements OnInit {
   cards: Pupils[];
   type: string;
+  collectionService: string;
+  collection: string;
   constructor(
     private activeRoute: ActivatedRoute,
     private pupilsService: PupilsService,
@@ -27,13 +29,21 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.sideMenuService.currentMenu.subscribe((collection) => {
-      this.getList(`${collection?.link || this.type}Service`);
+      this.collection = collection?.link;
+      this.collectionService = `${collection?.link || this.type}Service`;
+      this.getList();
     });
   }
-  public getList(collection: string): void {
-    this[collection].get().subscribe((cards: any) => (this.cards = cards));
+  public getList(): void {
+    this[this.collectionService]
+      .get()
+      .subscribe((cards: any) => (this.cards = cards));
   }
-  public handleDelete(item: any): void {
-    console.log(item);
+  public handleClickDelete({ id }: any): void {
+    console.log(id);
+    this[this.collectionService].delete(id).then(() => this.getList());
+  }
+  public handleClickEdit({ id }: any): void {
+    this.router.navigate(['main', 'edit', id, this.collection]);
   }
 }

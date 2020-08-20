@@ -5,6 +5,7 @@
       <p>{{ card.class || card.responsible_teacher }}</p>
       <span>{{ card.age || card.age_range }}</span>
     </div>
-    <button class="link" (click)="handleDelete(card)">deletar</button>
+    <button class="link" (click)="handleClickDelete(card)">deletar</button>
+    <button class="link" (click)="handleClickEdit(card)">editar</button>
   </div>
 </div>
