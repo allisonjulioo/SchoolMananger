@@ -3,6 +3,7 @@
   .list {
     margin-left: -1em;
     @include flex;
+    flex-wrap: wrap;
     .card {
       position: relative;
       min-width: 300px;
@@ -21,7 +22,6 @@
           .header {
             max-width: 60%;
             margin-top: 0;
-            min-height: 60px;
           }
         }
       }
