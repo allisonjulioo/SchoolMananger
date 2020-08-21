@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { GuardsService } from 'src/app/services/guards/guards.service';
 import { SideMenuService } from 'src/app/services/side-menu/side-menu.service';
+import { UsersService } from './../../services/users/users.service';
 
 @Component({
   selector: 'track-side-menu',
@@ -19,12 +20,22 @@ export class SideMenuComponent implements OnInit {
     private guardService: GuardsService,
     private authService: AuthService,
     private sideMenuService: SideMenuService,
-    private router: Router
+    private router: Router,
+    private usersService: UsersService
   ) {}
 
   ngOnInit(): void {
     this.getSideMenu();
-    this.guardService.currentUser.subscribe((user) => (this.user = user));
+    this.guardService.currentUser.subscribe((user) => {
+      if (user) {
+        this.getUser(user.uid);
+      }
+    });
+  }
+  getUser(id: string): void {
+    this.usersService.getUser(id).subscribe((user) => {
+      this.user = user[0];
+    });
   }
   public logout(): void {
     this.authService.logout();

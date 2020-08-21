@@ -10,6 +10,14 @@
   .bg {
     width: 50%;
     min-height: 100%;
+    @media (max-width: $medium-screen) {
+      width: 100%;
+    }
+    &.login-mb {
+      @media (max-width: $medium-screen) {
+        display: none;
+      }
+    }
   }
   .login,
   .register {
@@ -35,6 +43,9 @@
       width: 100%;
       object-fit: cover;
       height: 100vh;
+    }
+    @media (max-width: $medium-screen) {
+      display: none;
     }
   }
 }

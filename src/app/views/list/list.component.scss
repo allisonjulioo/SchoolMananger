@@ -32,6 +32,18 @@
         right: 12px;
         top: 8px;
       }
+      @media (max-width: $medium-screen) {
+        min-width: 100%;
+        width: 100%;
+        max-width: 100%;
+      }
     }
+    @media (max-width: $medium-screen) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  @media (max-width: $medium-screen) {
+    width: 100%;
   }
 }

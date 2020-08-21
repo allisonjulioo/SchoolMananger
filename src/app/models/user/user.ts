@@ -10,6 +10,7 @@ export class User {
   public refreshToken?: string;
   public password?: string;
   public token?: string;
+  public name?: string;
   public displayName?: string;
   public photoURL?: string;
   public expires?: string;

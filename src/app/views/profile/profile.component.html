@@ -1,1 +1,6 @@
-<p>profile works!</p>
+<div class="form">
+  <track-dynamic-form-builder
+    [fields]="fields"
+    (save)="onSubmit($event)"
+  ></track-dynamic-form-builder>
+</div>

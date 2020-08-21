@@ -1,12 +1,12 @@
-<div class="login">
-  <track-login *ngIf="!showContent" class="animated slideInLeft faster">
+<div class="login" [ngClass]="{ 'login-mb': isLogin }">
+  <track-login class="animated slideInLeft faster" *ngIf="!showContent">
     <div class="account-not">
       <span>Ainda não tem uma conta?</span>
       <button class="link" (click)="changeRegister()">Registre-se.</button>
     </div>
   </track-login>
 </div>
-<div class="register">
+<div class="register" [ngClass]="{ 'login-mb': !isLogin }">
   <track-register *ngIf="showContent" class="animated slideInRight faster">
     <div class="account-not">
       <span>Já tem uma conta?</span>

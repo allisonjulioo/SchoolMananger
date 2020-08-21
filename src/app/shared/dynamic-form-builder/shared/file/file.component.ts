@@ -37,7 +37,6 @@ export class FileComponent implements OnInit {
         console.log(res?.data);
         this.field.value = res?.data;
         this.form.patchValue({ picture: res?.data });
-        console.log(this.field, this.form);
       }
       this.progress = parseInt(
         ((res?.data.bytesTransferred * 100) / res?.data.totalBytes).toFixed(0),

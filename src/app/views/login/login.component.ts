@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
     private guard: GuardsService
   ) {}
   loginForm = new FormGroup({
-    email: new FormControl('allison.julio@hotmail.com', Validators.required),
-    password: new FormControl('121212julio', Validators.required),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
 
   ngOnInit(): void {}

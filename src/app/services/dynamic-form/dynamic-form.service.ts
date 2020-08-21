@@ -42,8 +42,8 @@ export class DynamicFormService {
           required: true,
         },
         {
-          type: 'text',
-          placeholder: 'Escreva seu dada',
+          type: 'number',
+          placeholder: 'Sua idade',
           name: 'age',
           label: 'Idade',
           value: form?.age,

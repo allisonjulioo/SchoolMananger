@@ -5,6 +5,7 @@ import {
   DocumentReference,
 } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class HttpUtilsService {
     private storage?: AngularFireStorage
   ) {}
 
-  public getById(id: string): any {
+  public getById(id: string): Observable<any> {
     return this.afs
       .collection(this.collection)
       .doc(id)
