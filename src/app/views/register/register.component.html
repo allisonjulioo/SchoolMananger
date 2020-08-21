@@ -3,10 +3,8 @@
     <img src="../../assets/logo.png" alt="" />
     <h4>Register</h4>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum consectetur
-      nulla ut, molestiae fugit minus facere iure at ab perferendis animi,
-      commodi, aspernatur repudiandae quaerat dolorem minima quibusdam aperiam
-      temporibus.
+      Crie uma conta e tenha o melhor software de gerenciamento escolar da
+      América Latina
     </p>
     <input
       placeholder="Nome completo"
@@ -31,7 +29,7 @@
       type="password"
       autocomplete="disabled"
     />
-    <button class="primary">Entrar</button>
+    <button class="primary" [disables]="!registerForm.valid">Entrar</button>
   </form>
   <ng-content></ng-content>
 </div>

@@ -8,8 +8,8 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-  public isLogin: boolean;
-  public showContent: boolean;
+  public isLogin: boolean = true;
+  public showContent: boolean = true;
   constructor(private loginService: AuthService) {}
   loginForm = new FormGroup({
     email: new FormControl('', Validators.required),
