@@ -53,7 +53,16 @@ export class EditComponent implements OnInit {
       this.dynamicFormService.currentForm$.next(res);
     });
   }
-  onSubmit(value: FormControl): void {
+  onSubmit(value: FormControl | any): void {
+    if ('classes' in value) {
+      const classes = [];
+      Object.values(value.classes).map((val: any) => {
+        if (val) {
+          classes.push({ key: val.key, label: val.label });
+        }
+      });
+      value = { ...value, classes };
+    }
     if (this.isNewRegister) {
       this.create(value);
     } else {
