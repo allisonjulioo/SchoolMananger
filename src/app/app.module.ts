@@ -1,3 +1,4 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
@@ -39,6 +40,7 @@ import { RegisterComponent } from './views/register/register.component';
     AngularFireModule,
     AngularFirestore,
     AngularFireAuth,
+    { provide: APP_BASE_HREF, useValue: '/trackto' },
   ],
   bootstrap: [AppComponent],
 })

@@ -21,7 +21,9 @@
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
     "@firebase/util": "^0.3.1",
+    "angular-cli-ghpages": "^0.6.2",
     "firebase": "^7.19.0",
+    "netlify-cli": "^2.59.1",
     "rxjs": "^6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

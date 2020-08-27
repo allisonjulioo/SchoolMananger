@@ -26,10 +26,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favico.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favico.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
-            "allowedCommonJsDependencies": ["rxjs-compat"]
+            "allowedCommonJsDependencies": [
+              "rxjs-compat"
+            ]
           },
           "configurations": {
             "production": {
@@ -86,8 +93,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favico.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favico.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -99,7 +111,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -113,6 +127,10 @@
               "devServerTarget": "trackto:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
