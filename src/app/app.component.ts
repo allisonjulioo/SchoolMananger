@@ -15,7 +15,7 @@ import { GuardsService } from './services/guards/guards.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private defaultTitle = 'School Mananger';
+  private defaultTitle = 'School Manager';
   constructor(
     private router: Router,
     private titleService: Title,
