@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { SideMenu } from 'src/app/models/side-menu/side-menu';
 
 @Component({
-  selector: 'track-main',
+  selector: 'scm-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })

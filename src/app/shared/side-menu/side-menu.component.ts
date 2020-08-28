@@ -8,7 +8,7 @@ import { SideMenuService } from 'src/app/services/side-menu/side-menu.service';
 import { UsersService } from './../../services/users/users.service';
 
 @Component({
-  selector: 'track-side-menu',
+  selector: 'scm-side-menu',
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss'],
 })

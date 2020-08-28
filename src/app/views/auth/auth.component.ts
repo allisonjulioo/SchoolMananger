@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'track-auth',
+  selector: 'scm-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })

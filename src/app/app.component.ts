@@ -10,12 +10,12 @@ import { filter } from 'rxjs/operators';
 import { GuardsService } from './services/guards/guards.service';
 
 @Component({
-  selector: 'track-root',
+  selector: 'scm-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private defaultTitle = 'Trackto Challenge';
+  private defaultTitle = 'School Mananger';
   constructor(
     private router: Router,
     private titleService: Title,

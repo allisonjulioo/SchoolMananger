@@ -16,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full',
     data: { title: 'Registrar' },
   },
-  { path: '*', redirectTo: 'login' },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({

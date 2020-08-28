@@ -8,7 +8,7 @@ import { ConfirmPassword } from '../../utils/validators/confirm-password';
 import { UsersService } from './../../services/users/users.service';
 
 @Component({
-  selector: 'track-register',
+  selector: 'scm-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

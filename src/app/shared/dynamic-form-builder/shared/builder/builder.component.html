@@ -5,7 +5,7 @@
   </label>
   <div [ngSwitch]="field.type">
     <ng-container [ngSwitch]="true">
-      <track-text-box
+      <scm-text-box
         *ngSwitchCase="
           field.type === 'text' ||
           field.type === 'number' ||
@@ -13,29 +13,25 @@
         "
         [field]="field"
         [form]="form"
-      ></track-text-box>
+      ></scm-text-box>
     </ng-container>
 
-    <track-dropdown
+    <scm-dropdown
       *ngSwitchCase="'dropdown'"
       [field]="field"
       [form]="form"
-    ></track-dropdown>
-    <track-checkbox
+    ></scm-dropdown>
+    <scm-checkbox
       *ngSwitchCase="'checkbox'"
       [field]="field"
       [form]="form"
-    ></track-checkbox>
-    <track-radio
+    ></scm-checkbox>
+    <scm-radio
       *ngSwitchCase="'radio'"
       [field]="field"
       [form]="form"
-    ></track-radio>
-    <track-file
-      *ngSwitchCase="'file'"
-      [field]="field"
-      [form]="form"
-    ></track-file>
+    ></scm-radio>
+    <scm-file *ngSwitchCase="'file'" [field]="field" [form]="form"></scm-file>
     <div class="fadeInDown animated" *ngIf="!isValid && isDirty">
       <span>{{ field.label }} campo obrigatório</span>
     </div>

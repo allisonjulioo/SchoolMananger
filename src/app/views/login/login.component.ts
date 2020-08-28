@@ -6,7 +6,7 @@ import { User } from '../../models/user/user';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'track-login',
+  selector: 'scm-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

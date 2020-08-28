@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { DynamicFormService } from './../../../../services/dynamic-form/dynamic-form.service';
 
 @Component({
-  selector: 'track-file',
+  selector: 'scm-file',
   templateUrl: './file.component.html',
   styleUrls: ['./file.component.scss'],
 })

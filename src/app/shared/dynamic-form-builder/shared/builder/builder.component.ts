@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'track-builder',
+  selector: 'scm-builder',
   templateUrl: './builder.component.html',
   styleUrls: ['./builder.component.scss'],
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'track-profile',
+  selector: 'scm-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

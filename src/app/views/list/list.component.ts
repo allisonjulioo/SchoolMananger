@@ -7,7 +7,7 @@ import { SideMenuService } from 'src/app/services/side-menu/side-menu.service';
 import { TeachersService } from 'src/app/services/teachers/teachers.service';
 
 @Component({
-  selector: 'track-list',
+  selector: 'scm-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })

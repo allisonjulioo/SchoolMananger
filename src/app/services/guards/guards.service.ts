@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/models/user/user';
-import { UsersService } from './../users/users.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +11,7 @@ export class GuardsService implements CanActivate {
   private currentUser$: BehaviorSubject<User> = new BehaviorSubject(null);
   public currentUser = this.currentUser$.asObservable();
 
-  constructor(private router: Router, private userService: UsersService) {
+  constructor(private router: Router) {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
   public async storageUser(user: User): Promise<void> {
@@ -22,7 +21,7 @@ export class GuardsService implements CanActivate {
   public async checkIfUserLogged(): Promise<void> {
     this.user = this.getUser();
     if (!this.user) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['login']);
     }
   }
   public getUser(): Observable<User> {
@@ -31,6 +30,7 @@ export class GuardsService implements CanActivate {
     return user;
   }
   canActivate(): Observable<boolean> | boolean {
+    this.checkIfUserLogged();
     return !!this.user;
   }
 }

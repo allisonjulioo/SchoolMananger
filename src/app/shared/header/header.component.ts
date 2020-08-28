@@ -4,7 +4,7 @@ import { SideMenu } from 'src/app/models/side-menu/side-menu';
 import { SideMenuService } from 'src/app/services/side-menu/side-menu.service';
 
 @Component({
-  selector: 'track-header',
+  selector: 'scm-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

@@ -8,7 +8,7 @@ import { TeachersService } from 'src/app/services/teachers/teachers.service';
 import { DynamicFormService } from './../../services/dynamic-form/dynamic-form.service';
 
 @Component({
-  selector: 'track-edit',
+  selector: 'scm-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss'],
 })

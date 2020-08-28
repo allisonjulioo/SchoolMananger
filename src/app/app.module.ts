@@ -40,7 +40,7 @@ import { RegisterComponent } from './views/register/register.component';
     AngularFireModule,
     AngularFirestore,
     AngularFireAuth,
-    { provide: APP_BASE_HREF, useValue: '/trackto' },
+    { provide: APP_BASE_HREF, useValue: '/school' },
   ],
   bootstrap: [AppComponent],
 })

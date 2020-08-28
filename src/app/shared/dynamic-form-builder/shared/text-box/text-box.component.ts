@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'track-text-box',
+  selector: 'scm-text-box',
   templateUrl: './text-box.component.html',
   styleUrls: ['./text-box.component.scss'],
 })

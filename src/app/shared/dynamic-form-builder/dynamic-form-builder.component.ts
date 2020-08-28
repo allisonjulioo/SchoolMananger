@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'track-dynamic-form-builder',
+  selector: 'scm-dynamic-form-builder',
   templateUrl: './dynamic-form-builder.component.html',
   styleUrls: ['./dynamic-form-builder.component.scss'],
 })
