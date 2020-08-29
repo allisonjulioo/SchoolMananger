@@ -3,7 +3,8 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
 Firebase Bass api integration.
 
-[See demo production](https://schooll-manager.netlify.app)
+### Demo
+[See product](https://schooll-manager.netlify.app)
 
 ### Features
 
